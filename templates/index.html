@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>Movie System</title></head>
+<body>
+    <h1>All Movies</h1>
+    <table border="1">
+        <tr>
+            <th>Title</th> <th>Genres</th> <th>Year</th> <th>Director</th> <th>Cast</th>
+        </tr>
+        {% for movie in movies %}
+        <tr>
+            <td>{{ movie.title }}</td>
+            <td>{{ movie.genres }}</td>
+            <td>{{ movie.release_year }}</td>
+            <td>{{ movie.director_name }}</td>
+            <td>{{ movie.cast_list }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/rate">Rate a Movie</a>
+</body>
+</html>

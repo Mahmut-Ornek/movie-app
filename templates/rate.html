@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head><title>Rate a Movie</title></head>
+<body>
+    <h1>Submit a Rating</h1>
+    <form method="POST">
+        <label>Who are you?</label><br>
+        <select name="user_id" required>
+            {% for user in users %}
+                <option value="{{ user.user_id }}">{{ user.username }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <label>Pick a Movie:</label><br>
+        <select name="movie_id" required>
+            {% for movie in movies %}
+                <option value="{{ movie.movie_id }}">{{ movie.title }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <button type="submit">Submit Rating</button>
+    </form>
+    <br>
+    <a href="/">Back to List</a>
+</body>
+</html>
