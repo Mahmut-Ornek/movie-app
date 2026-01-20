@@ -6,6 +6,7 @@
     <table border="1">
         <tr>
             <th>Title</th> <th>Genres</th> <th>Year</th> <th>Director</th> <th>Cast</th>
+
         </tr>
         {% for movie in movies %}
         <tr>
@@ -14,6 +15,14 @@
             <td>{{ movie.release_year }}</td>
             <td>{{ movie.director_name }}</td>
             <td>{{ movie.cast_list }}</td>
+
+            <td>
+                <form action="{{ url_for('delete_movie', movie_id=movie.movie_id) }}"
+                    method="POST"
+                    onsubmit="return confirm('Delete this movie?');">
+                    <button type="submit" style="color: red;">Delete</button>
+                </form>
+            </td>
         </tr>
         {% endfor %}
     </table>
