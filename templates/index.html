@@ -17,8 +17,10 @@
             <td>{{ movie.cast_list }}</td>
 
             <td>
+                <a href="{{ url_for('edit_movie', movie_id=movie.movie_id) }}">Edit</a>
+
                 <form action="{{ url_for('delete_movie', movie_id=movie.movie_id) }}"
-                    method="POST"
+                    method="POST" style="display: inline;"
                     onsubmit="return confirm('Delete this movie?');">
                     <button type="submit" style="color: red;">Delete</button>
                 </form>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head><title>Edit Movie</title></head>
+<body>
+    <h1>Edit Movie: {{ movie.title }}</h1>
+    <form method="POST">
+        <label>Title:</label><br>
+        <input type="text" name="title" value="{{ movie.title }}" required>
+        <br><br>
+
+        <label>Release Year:</label><br>
+        <input type="number" name="release_year" value="{{ movie.release_year }}" required>
+        <br><br>
+
+        <label>Director:</label><br>
+        <select name="director_id">
+            {% for d in directors %}
+                <option value="{{ d.director_id }}"
+                    {% if d.director_id == movie.director_id %}selected{% endif %}>
+                    {{ d.director_name }}
+                </option>
+            {% endfor %} 
+        </select>
+        <br><br>
+
+        <button type="submit">Save Changes</button>
+        <a href="/">Cancel</a>
+    </form>
+</body>
+</html>
